@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container .main {
+            display: flex;
+            gap: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="main">
+            <div class="left">
+                <textarea name="" id="txtInput" cols="60" rows="10"></textarea>
+                <div class="control">
+                    <button type="button" id="btnGene">Generation</button>
+                    <button type="button" id="btnClear">Clear</button>
+                </div>
+            </div>
+            <div class="right">
+                <input type="text" id="txtFormatUrl" placeholder="rule image">
+                <input type="text" id="txtFormatImage" placeholder="type image">
+                <pre id="txtOutPut">
+
+                </pre>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(document).ready(function(){
+        $('#btnGene').click(function(){
+            let a = $('#txtInput').val().trim();
+            let tempUrl = $('#txtFormatUrl').val().trim();
+            let typeImg = $('#txtFormatImage').val().trim();
+            a = JSON.parse(a);
+            let b = a.map(function(item, index) {
+                const i= {
+                    id: index + 1,
+                    url_image: `https://webvinabook.com/wp-content/uploads/2023/10/${tempUrl + (index + 1)+'.'+typeImg}`,
+                    content : item.content
+                }
+                console.log(i);
+                return i;
+            })
+            let c = document.getElementById('txtOutPut');
+            c.textContent = JSON.stringify(b, null, 2);
+            c.textContent = c.textContent.replaceAll('"content_en"', 'content_en')
+            .replaceAll('"content_vi"', 'content_vi')
+            .replaceAll('"content_jp"', 'content_jp')
+            .replaceAll('"content_ko"', 'content_ko')
+            .replaceAll('"content_fr"', 'content_fr')
+            .replaceAll('"content_de"', 'content_de')
+            .replaceAll('"content"', 'content')
+            .replaceAll('"id"', 'id')
+            .replaceAll('"url_image"', 'url_image')
+        })
+        $('#btnClear').click(function(){
+            $('#txtOutPut').text('');
+            $('#txtInput').val('');
+        })
+    })
+</script>
+</html>
