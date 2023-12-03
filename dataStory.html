@@ -4263,26 +4263,13 @@
             <ul class="list_content">
                     <li>
                         <p>Ảnh số ${j + 1} :</p>
-                        <img src="${dta.url_image}" alt="" srcset="">
                         <h5>Nội dung : </h5>
                         <ul>
                             <li>
                             <strong>VI : </strong> ${dta.content.content_vi}
                             </li>
                             <li>
-                            <strong>EN : </strong>    ${dta.content.content_en}
-                            </li>
-                            <li>
-                            <strong>JP : </strong>     ${dta.content.content_jp}
-                            </li>
-                            <li>
-                            <strong>KO : </strong>     ${dta.content.content_ko}
-                            </li>
-                            <li>
                             <strong>FR : </strong>    ${dta.content.content_fr}
-                            </li>
-                            <li>
-                            <strong>DE : </strong>    ${dta.content.content_de}
                             </li>
                         </ul>
                     </li>
@@ -4296,11 +4283,7 @@
                 <h4>Tên câu chuyện : ${item.mStoryName.vi}</h4>
                 <div class="detail__content_story">
                     <ul>
-                        <li>${dataLang['en']} : ${item.mStoryName.en}</li>
                         <li>${dataLang['fr']} : ${item.mStoryName.fr}</li>
-                        <li>${dataLang['jp']} : ${item.mStoryName.jp}</li>
-                        <li>${dataLang['ko']} : ${item.mStoryName.ko}</li>
-                        <li>${dataLang['de']} : ${item.mStoryName.de}</li>
                     </ul>
                     ${htmlChil}
                 </div>
